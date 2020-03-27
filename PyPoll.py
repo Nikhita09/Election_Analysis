@@ -30,12 +30,15 @@ with open(file_to_load) as election_data:
         candidate_votes[candidate_name] +=1
 for candidate,vote in candidate_votes.items():
     vote_percentage = format((float(vote)/float(total_votes))*100, '.2f')
-    print(f"{candidate} has received {vote_percentage} % of the total votes")
+    print(f"{candidate} has received {vote_percentage} % of the total votes\n")
+
+for candidate,vote in candidate_votes.items():
+    vote_percentage = format((float(vote)/float(total_votes))*100, '.2f')
     if (float(vote) > float(winning_count)) and (float(vote_percentage) > float(winning_percentage)):
         winning_count = vote
         winning_percentage = vote_percentage
         winning_candidate = candidate
-print(f"{candidate}: {vote_percentage}% ({vote:,})\n")
+    print(f"{candidate}: {vote_percentage}% ({vote:,})\n")
 print(total_votes)   
 print(candidate_options)
 print(candidate_votes)
